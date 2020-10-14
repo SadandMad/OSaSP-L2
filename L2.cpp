@@ -72,7 +72,15 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) 
 		wndwHeight = Rect.bottom;
 		RECT Wnd;
 		GetWindowRect(hwnd, &Wnd);
+<<<<<<< Updated upstream
 		if (wndwHeight > height)
+=======
+<<<<<<< HEAD
+		if (wndwHeight != height && height > 0)
+=======
+		if (wndwHeight > height)
+>>>>>>> master
+>>>>>>> Stashed changes
 		{
 			MoveWindow(hwnd, Wnd.left, Wnd.top, Wnd.right - Wnd.left, height + 45, TRUE);
 		}
@@ -128,6 +136,11 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 			int len = strcspn(arr[j][i], "\n");
 			if (len > amount)
 				amount = len;
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 			/*const char* pos;
 			do {
 				pos = strchr(arr[j][i], '\n');
@@ -136,6 +149,10 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 						amount = strlen(arr[j][i]);
 				}
 			} while (pos);*/
+<<<<<<< Updated upstream
+=======
+>>>>>>> master
+>>>>>>> Stashed changes
 		}
 	}
 
