@@ -69,13 +69,15 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) 
 		GetClientRect(hwnd, &Rect);
 		width = Rect.right / COLS;
 		charHeight = 50;
+
 		wndwHeight = Rect.bottom;
 		RECT Wnd;
 		GetWindowRect(hwnd, &Wnd);
-		if (wndwHeight > height)
+		if (wndwHeight != height && height > 0)
 		{
-			MoveWindow(hwnd, Wnd.left, Wnd.top, Wnd.right - Wnd.left, height + 45, TRUE);
+			MoveWindow(hwnd, Wnd.left, Wnd.top, Wnd.right - Wnd.left, height + 45, FALSE);
 		}
+		
 		InvalidateRect(hwnd, NULL, FALSE);
 		break;
 	}
@@ -115,7 +117,7 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 		CW_USEDEFAULT, /* x */
 		CW_USEDEFAULT, /* y */
 		800, /* width */
-		600, /* height */
+		300, /* height */
 		NULL, NULL, hInstance, NULL);
 
 	if (hwnd == NULL) {
@@ -128,14 +130,6 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 			int len = strcspn(arr[j][i], "\n");
 			if (len > amount)
 				amount = len;
-			/*const char* pos;
-			do {
-				pos = strchr(arr[j][i], '\n');
-				if (pos) {
-					if (pos - arr[j][i] > amount)
-						amount = strlen(arr[j][i]);
-				}
-			} while (pos);*/
 		}
 	}
 
